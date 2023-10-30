@@ -10,7 +10,6 @@ int main(int ac, char **av)
         for(int i=1; i < ac ; i++){
             str = av[i];
             for (size_t j = 0; j < str.size() ; j++){
-                // if(islower(str[j]))
                     str[j] = toupper(str[j]);
                 std :: cout << str[j];
             }

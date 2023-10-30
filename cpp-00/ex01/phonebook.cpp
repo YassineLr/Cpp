@@ -17,7 +17,6 @@ void Phonebook :: search_contact(){
     this->displayContacts();
     std :: cout << "choose the index of contact you want to search : ";
     std :: cin >> index ;
-    // std :: cin;
     if(index > this->contacts_counter){
         std::cout <<"The index is out range !"<< std::endl;
         return ;
@@ -106,16 +105,17 @@ int main(int ac, char **av){
     Phonebook book ;
     std :: string command;
 
-    std :: cout << "------- Hello-----------" << std::endl;
-    std :: cout <<" - ADD"<<std:: endl;
-    std :: cout <<" - SEARCH"<<std:: endl;
-    std :: cout <<" - EXIT"<<std:: endl;
 
     while (1)
     {
+        std :: cout << "------- Hello-----------" << std::endl;
+        std :: cout <<" - ADD"<<std:: endl;
+        std :: cout <<" - SEARCH"<<std:: endl;
+        std :: cout <<" - EXIT"<<std:: endl;
         std :: cout <<"Choose a Command "<<std :: endl;
         getline(std :: cin, command);
-        // command = strToUpper(command);
+        if (command != "ADD" && command != "SEARCH" && command != "EXIT")
+            continue;
         if(!command.compare("ADD")){
             book.add_contact();
         }
@@ -129,12 +129,4 @@ int main(int ac, char **av){
             std :: cout <<"This command is not found !"<< std::endl;
         }
     }
-    
-    
-    // book.search_contact(1);
-    // book.exit_phonebook();
-    book.displayContacts();
-    // book.contacts_counter = 0;
-    // book.contacts[0].printContact();
-    // book.contacts[1].printContact();
 }
