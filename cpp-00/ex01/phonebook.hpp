@@ -33,7 +33,7 @@ class Phonebook{
     public:
         Phonebook();
         void add_contact();
-        void search_contact(int index);
+        void search_contact();
         void exit_phonebook();
         void displayContacts();
         // void displayContacts()
