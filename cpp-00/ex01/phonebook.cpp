@@ -1,24 +1,39 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   phonebook.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ylarhris <ylarhris@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/31 05:45:53 by ylarhris          #+#    #+#             */
+/*   Updated: 2023/10/31 05:46:42 by ylarhris         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 # include "phonebook.hpp"
-
-
-std :: string strToUpper(std :: string str){
-    for (size_t j = 0; j < str.size() ; j++){
-        str[j] = toupper(str[j]);
-    }
-    return str;
-}
 
 Phonebook :: Phonebook(){
     this->contacts_counter = 0;
 }
 
 void Phonebook :: search_contact(){
-    int index;
+    std :: string sIndex;
+    int           index;
+
+    if(!this->contacts_counter){
+        std :: cout << "The Phonebook is empty try to add contacts first :"<< std::endl;
+        return ;
+    }
     this->displayContacts();
-    std :: cout << "choose the index of contact you want to search : ";
-    std :: cin >> index ;
-    if(index > this->contacts_counter){
-        std::cout <<"The index is out range !"<< std::endl;
+    do{
+        std :: cout << "choose the index of contact you want to search : ";
+        getline(std :: cin , sIndex);
+        if(std :: cin.eof())
+            exit(1);
+    } while(isEmpty(sIndex));
+    index = stringToInt(sIndex);
+    if(index >= this->contacts_counter || index < 0){
+        std::cout <<"Invalid Index !"<< std::endl;
         return ;
     }
     else if(this->contacts_counter >= 1)
@@ -26,20 +41,44 @@ void Phonebook :: search_contact(){
 }
 
 void Phonebook::displayContacts(){
-	std::cout << "Index\tFirst Name\tLast Name\tNick Name" << std::endl;
-
-	for (int i = 0; i < this->contacts_counter ; i++)
+    int count;
+    std :: cout << this->contacts_counter << std :: endl;
+    if(this->contacts_counter >= 8)
+        count = 8;
+    else
+        count = this->contacts_counter % 8;
+    std :: cout << count << std :: endl;
+	std::cout << "Index     | First Name | Last Name | Nick Name |" << std::endl;
+	for (int i = 0; i < count ; i++)
 	{
 		std::string firstName = contacts[i].getFirstName();
 		std::string lastName = contacts[i].getLastName();
 		std::string nickName = contacts[i].getNickname();
 		if (firstName.length() > 10)
 			firstName = firstName.substr(0, 9) + ".";
+        else {
+            int len = 10 - firstName.length();
+            for (size_t i = 0; i < len ; i++){
+                firstName = firstName+" ";
+            }
+        }
 		if (lastName.length() > 10)
 			lastName = lastName.substr(0, 9) + ".";
+        else {
+            int len = 10 - lastName.length();
+            for (size_t i = 0; i < len ; i++){
+                lastName = lastName+" ";
+            }
+        }
 		if (nickName.length() > 10)
 			nickName = nickName.substr(0,9) + ".";
-		std::cout << i << "\t" << firstName << "\t\t" << lastName << "\t" << nickName << std::endl;
+        else {
+            int len = 10 - nickName.length();
+            for (size_t i = 0; i < len ; i++){
+                nickName = nickName+" ";
+            }
+        }
+		std::cout << i <<"         " << "| " << firstName << " | " << lastName << "| " << nickName << "|"<< std::endl;
 	}
 }
 
@@ -50,83 +89,73 @@ void Phonebook :: add_contact(){
     std :: string nickname;
     std :: string phoneNumber;
     std :: string darkSecret;
-    int             faillureCounter = 0;
+    bool             faillure = false;
     do
     {
-        if (faillureCounter == 0)
+        if (faillure == false)
             std :: cout << "The first Name : ";
         else
             std :: cout << "Error ! type a valid name : ";
-        faillureCounter++;
+        faillure = true;
         getline(std :: cin , firstName);
-        if(!isValidName(firstName) && faillureCounter >= 3)
-            return ;
-
+        if(std ::cin.eof())
+            exit(1);
     } while (!isValidName(firstName));
-    faillureCounter = 0;
+    faillure = 0;
     do
     {
-        if (faillureCounter == 0)
+        if (faillure == false)
             std :: cout << "The last Name : ";
         else 
             std :: cout << "Error ! please type a valid name : ";
-        faillureCounter++;
+        faillure = true;
         getline(std :: cin , lastName);
-        if(!isValidName(lastName) && faillureCounter >= 3)
-            return ;
+        if(std ::cin.eof())
+            exit(1);
     } while (!isValidName(lastName));
-    std :: cout << "Your Nickname : ";
-    getline(std :: cin , nickname);
-    faillureCounter = 0;
+    faillure = 0;
     do
     {
-        if (faillureCounter == 0)
+        if (faillure == false)
+            std :: cout << "The Nickname : ";
+        else 
+            std :: cout << "this field is required ! Enter a nickname : ";
+        faillure = true;
+        getline(std :: cin , nickname);
+        if(std ::cin.eof())
+            exit(1);
+    } while (isEmpty(nickname));
+    faillure = 0;
+    do
+    {
+        if (faillure == 0)
             std :: cout << "Your Number : ";
         else 
             std :: cout << "Enter a valid Phonenumber : ";
-        faillureCounter++;
+        faillure = true;
         getline(std :: cin, phoneNumber);
-        if(!isValidNumber(phoneNumber) && faillureCounter >= 3)
-            return ;
+        if(std ::cin.eof())
+            exit(1);
+
     } while (!isValidNumber(phoneNumber));
-    std :: cout << "Enter a dark secret : ";
-    getline(std:: cin , darkSecret);
+    faillure = false;
+    do
+    {
+        if (faillure == false)
+            std :: cout << "Dark secret : ";
+        else 
+            std :: cout << "this field is required ! Enter a Dark secret : ";
+        faillure = true;
+        getline(std :: cin , darkSecret);
+        if(std ::cin.eof())
+            exit(1);
+    } while (isEmpty(darkSecret));
     Contact contact = Contact(firstName, lastName, nickname, phoneNumber,this->contacts_counter % 8);
     this->contacts[this->contacts_counter % 8] = contact;
     this->contacts_counter++;
 }
 
 void Phonebook::exit_phonebook(){
-    std::cout <<"adios amigo !"<<std ::endl;
+    std::cout <<"SEE YOU AGAIN !"<<std ::endl;
     exit(0);
-}
-
-int main(int ac, char **av){
-    Phonebook book ;
-    std :: string command;
-
-
-    while (1)
-    {
-        std :: cout << "------- Hello-----------" << std::endl;
-        std :: cout <<" - ADD"<<std:: endl;
-        std :: cout <<" - SEARCH"<<std:: endl;
-        std :: cout <<" - EXIT"<<std:: endl;
-        std :: cout <<"Choose a Command "<<std :: endl;
-        getline(std :: cin, command);
-        if (command != "ADD" && command != "SEARCH" && command != "EXIT")
-            continue;
-        if(!command.compare("ADD")){
-            book.add_contact();
-        }
-        else if(!command.compare("SEARCH")){
-            book.search_contact();
-        }
-        else if(!command.compare("EXIT")){
-            book.exit_phonebook();
-        }
-        else {
-            std :: cout <<"This command is not found !"<< std::endl;
-        }
-    }
 }

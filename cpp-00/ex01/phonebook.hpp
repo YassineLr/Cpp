@@ -1,29 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   phonebook.hpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ylarhris <ylarhris@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/31 05:45:37 by ylarhris          #+#    #+#             */
+/*   Updated: 2023/10/31 05:46:25 by ylarhris         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 # ifndef PHONEBOOK_H
 # define PHONEBOOK_H
 
-#include <iostream>
-#include <cstdlib>
-#include <cstring>
-class Contact{
-    private:
-        std :: string firstName;
-        std :: string lastName;
-        std :: string nickname;
-        std :: string phoneNumber;
-        std :: string darkSecret;
-        int             id;
-    public:
-        Contact();
-        Contact(std :: string firstName, std :: string lastName, std :: string nickname, std :: string phoneNumber,int id);
-        void          printContact();
-        std :: string getFirstName();
-        std :: string getLastName();
-        std :: string getNickname();
-        std :: string getPhoneNumber();
-        std :: string getDarkSecret();
-        // void search_contact(int index);
-        int           getid();
-};
+# include "contact.hpp"
+# include <cstdlib>
+# include <cstring>
 
 class Phonebook{
 
@@ -36,12 +28,14 @@ class Phonebook{
         void search_contact();
         void exit_phonebook();
         void displayContacts();
-        // void displayContacts()
-
 };
 
-bool isValidNumber(std :: string num);
-bool isValidName(std::string str);
+bool    isValidNumber(std :: string num);
+bool    isValidName(std::string str);
+bool    isEmpty(std :: string str);
+int     stringToInt(const std::string str);
+bool    isOnlyDigits(std :: string str);
+std :: string strToUpper(std :: string str);
 
 # endif
  

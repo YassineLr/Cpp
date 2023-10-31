@@ -1,35 +1,6 @@
 #include "phonebook.hpp"
 
 
-bool isEmpty(std :: string str){
-    for (size_t i = 0; i < str.size(); i++){
-        if(!std :: isspace(str[i]))
-            return false;
-    }
-    return true;
-}
-
-bool isValidName(std::string str) {
-    if(isEmpty(str))
-        return false;
-    for (size_t i = 0; i < str.size(); i++) {
-        if (!isalpha(str[i]) && str[i] != '-' && str[i] != '_' && str[i] != ' ') {
-            return false;
-        }
-    }
-    return true;
-}
-
-bool isValidNumber(std :: string num){
-    if(isEmpty(num) || num.size() >10 )
-        return false;
-    for (size_t i = 0; i < num.size(); i++){
-        if(!isdigit(num[i])){
-            return false;
-        }
-    }
-    return true;
-}
 
 std::string Contact::getFirstName(){
     return this->firstName;
@@ -74,10 +45,10 @@ Contact :: Contact(std :: string firstName, std :: string lastName, std :: strin
 }
 
 void Contact :: printContact(){
-    std::cout <<"Name : "<< this->firstName << std :: endl;
+    std::cout <<"Index : "<< this->id << std :: endl;
+    std::cout <<"First Name : "<< this->firstName << std :: endl;
     std::cout <<"Last Name : "<< this->lastName << std :: endl;
     std::cout <<"Nickname : "<< this->nickname << std :: endl;
-    std::cout <<"ID : "<< this->id << std :: endl;
 }
 
 
