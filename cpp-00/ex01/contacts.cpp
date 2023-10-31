@@ -32,7 +32,7 @@ Contact :: Contact(){
 
 }
 
-Contact :: Contact(std :: string firstName, std :: string lastName, std :: string nickname, std :: string phoneNumber,int id){
+Contact :: Contact(std :: string firstName, std :: string lastName, std :: string nickname, std :: string phoneNumber,std :: string darkSecret,int id){
     if (isValidName(firstName))
         this->firstName = firstName;
     if (isValidName(lastName))
@@ -49,6 +49,9 @@ void Contact :: printContact(){
     std::cout <<"First Name : "<< this->firstName << std :: endl;
     std::cout <<"Last Name : "<< this->lastName << std :: endl;
     std::cout <<"Nickname : "<< this->nickname << std :: endl;
+    std::cout << "Phone Number : "<< this->phoneNumber << std:: endl;
+    std::cout << "Dark secret : " << this->darkSecret << std:: endl;
+
 }
 
 

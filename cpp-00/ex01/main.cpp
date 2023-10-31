@@ -6,7 +6,7 @@
 /*   By: ylarhris <ylarhris@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 05:45:29 by ylarhris          #+#    #+#             */
-/*   Updated: 2023/10/31 05:46:09 by ylarhris         ###   ########.fr       */
+/*   Updated: 2023/10/31 22:50:10 by ylarhris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,13 @@ int main(int ac, char **av){
     Phonebook book ;
     std :: string command;
     std :: string tmp;
-
-
+    
+    (void)av;
+    if(ac > 1)
+    {
+        std :: cout << "Invalid Argument ! try to don't enter any argument" << std :: endl;
+        return 0;
+    }
     std :: cout << "****** WELCOME TO PHONEBOOK ******" << std::endl;
     while (1)
     {

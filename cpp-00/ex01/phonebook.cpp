@@ -6,7 +6,7 @@
 /*   By: ylarhris <ylarhris@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 05:45:53 by ylarhris          #+#    #+#             */
-/*   Updated: 2023/10/31 05:46:42 by ylarhris         ###   ########.fr       */
+/*   Updated: 2023/10/31 22:47:20 by ylarhris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,50 +40,33 @@ void Phonebook :: search_contact(){
         this->contacts[index].printContact();
 }
 
-void Phonebook::displayContacts(){
+void Phonebook::displayContacts() {
     int count;
-    std :: cout << this->contacts_counter << std :: endl;
-    if(this->contacts_counter >= 8)
+    std::cout << this->contacts_counter << std::endl;
+
+    if (this->contacts_counter >= 8)
         count = 8;
     else
         count = this->contacts_counter % 8;
-    std :: cout << count << std :: endl;
-	std::cout << "Index     | First Name | Last Name | Nick Name |" << std::endl;
-	for (int i = 0; i < count ; i++)
-	{
-		std::string firstName = contacts[i].getFirstName();
-		std::string lastName = contacts[i].getLastName();
-		std::string nickName = contacts[i].getNickname();
-		if (firstName.length() > 10)
-			firstName = firstName.substr(0, 9) + ".";
-        else {
-            int len = 10 - firstName.length();
-            for (size_t i = 0; i < len ; i++){
-                firstName = firstName+" ";
-            }
-        }
-		if (lastName.length() > 10)
-			lastName = lastName.substr(0, 9) + ".";
-        else {
-            int len = 10 - lastName.length();
-            for (size_t i = 0; i < len ; i++){
-                lastName = lastName+" ";
-            }
-        }
-		if (nickName.length() > 10)
-			nickName = nickName.substr(0,9) + ".";
-        else {
-            int len = 10 - nickName.length();
-            for (size_t i = 0; i < len ; i++){
-                nickName = nickName+" ";
-            }
-        }
-		std::cout << i <<"         " << "| " << firstName << " | " << lastName << "| " << nickName << "|"<< std::endl;
-	}
+
+    std::cout << count << std::endl;
+
+    std::cout << std::setw(11) << "Index|" << std::setw(11) << "First Name|" << std::setw(11) << "Last Name|" << std::setw(11) << "Nickname|" << std::endl;
+
+    for (int i = 0; i < count; i++) {
+        std::string firstName = contacts[i].getFirstName();
+        std::string lastName = contacts[i].getLastName();
+        std::string nickName = contacts[i].getNickname();
+
+        firstName = (firstName.length() > 10) ? firstName.substr(0, 9) + "." : firstName;
+        lastName = (lastName.length() > 10) ? lastName.substr(0, 9) + "." : lastName;
+        nickName = (nickName.length() > 10) ? nickName.substr(0, 9) + "." : nickName;
+
+        std::cout << std::setw(10) << contacts[i].getid() << "|" << std::setw(11) << firstName + "|"<< std::setw(11) << lastName +"|" << std::setw(11) << nickName+"|"<< std::endl;
+    }
 }
 
 void Phonebook :: add_contact(){
-    int index;
     std :: string firstName;
     std :: string lastName;
     std :: string nickname;
@@ -150,7 +133,7 @@ void Phonebook :: add_contact(){
         if(std ::cin.eof())
             exit(1);
     } while (isEmpty(darkSecret));
-    Contact contact = Contact(firstName, lastName, nickname, phoneNumber,this->contacts_counter % 8);
+    Contact contact = Contact(firstName, lastName, nickname, phoneNumber,darkSecret, this->contacts_counter % 8);
     this->contacts[this->contacts_counter % 8] = contact;
     this->contacts_counter++;
 }
