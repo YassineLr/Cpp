@@ -6,7 +6,7 @@
 /*   By: ylarhris <ylarhris@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 05:45:29 by ylarhris          #+#    #+#             */
-/*   Updated: 2023/10/31 22:50:10 by ylarhris         ###   ########.fr       */
+/*   Updated: 2023/11/01 00:55:29 by ylarhris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,6 @@ bool isValidNumber(std :: string num){
         return false;
     return true;
 }
-
-
 
 int stringToInt(const std::string str) {
     const char* cstr = str.c_str();

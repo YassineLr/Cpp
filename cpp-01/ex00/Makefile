@@ -5,14 +5,14 @@
 #                                                     +:+ +:+         +:+      #
 #    By: ylarhris <ylarhris@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/11/01 00:54:44 by ylarhris          #+#    #+#              #
-#    Updated: 2023/11/01 00:54:45 by ylarhris         ###   ########.fr        #
+#    Created: 2023/11/01 01:02:08 by ylarhris          #+#    #+#              #
+#    Updated: 2023/11/01 01:03:44 by ylarhris         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= phonebook
+NAME	= brainz
 
-SRC		= phonebook.cpp contacts.cpp main.cpp
+SRC		= Zombie.cpp newZombie.cpp randomChump.cpp main.cpp
 
 OBJ		= ${SRC:.cpp=.o}
 

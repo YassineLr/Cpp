@@ -6,7 +6,7 @@
 /*   By: ylarhris <ylarhris@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 05:45:37 by ylarhris          #+#    #+#             */
-/*   Updated: 2023/10/31 07:47:54 by ylarhris         ###   ########.fr       */
+/*   Updated: 2023/11/01 00:56:00 by ylarhris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,12 @@ class Phonebook{
         void displayContacts();
 };
 
-bool    isValidNumber(std :: string num);
-bool    isValidName(std::string str);
-bool    isEmpty(std :: string str);
-int     stringToInt(const std::string str);
-bool    isOnlyDigits(std :: string str);
-std :: string strToUpper(std :: string str);
+bool            isValidNumber(std :: string num);
+bool            isValidName(std::string str);
+bool            isEmpty(std :: string str);
+int             stringToInt(const std::string str);
+bool            isOnlyDigits(std :: string str);
+std :: string   strToUpper(std :: string str);
 
 # endif
  

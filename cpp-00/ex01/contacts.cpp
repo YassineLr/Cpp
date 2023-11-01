@@ -1,6 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   contacts.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ylarhris <ylarhris@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/01 00:54:52 by ylarhris          #+#    #+#             */
+/*   Updated: 2023/11/01 00:55:16 by ylarhris         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "phonebook.hpp"
-
-
 
 std::string Contact::getFirstName(){
     return this->firstName;
@@ -12,7 +22,6 @@ std::string Contact::getLastName(){
 
 std::string Contact::getNickname(){
     return this->nickname;
-
 }
 
 std::string Contact::getPhoneNumber(){
@@ -26,7 +35,6 @@ std::string Contact::getDarkSecret(){
 int Contact :: getid(){
     return this->id;
 }
-
 
 Contact :: Contact(){
 
@@ -51,7 +59,6 @@ void Contact :: printContact(){
     std::cout <<"Nickname : "<< this->nickname << std :: endl;
     std::cout << "Phone Number : "<< this->phoneNumber << std:: endl;
     std::cout << "Dark secret : " << this->darkSecret << std:: endl;
-
 }
 
 
