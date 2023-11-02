@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylarhris <ylarhris@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/01 06:48:36 by ylarhris          #+#    #+#             */
-/*   Updated: 2023/11/02 08:15:53 by ylarhris         ###   ########.fr       */
+/*   Created: 2023/11/02 08:17:53 by ylarhris          #+#    #+#             */
+/*   Updated: 2023/11/02 10:23:56 by ylarhris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+# include <iostream>
 
-Zombie::Zombie(){
-    this->name = "CrocoMan";
-}
+int main(){
+    std :: string str = "HI THIS IS BRAIN";
+    std :: string *stringPTR = &str;
+    std::string& stringREF = str;
+    
 
-void Zombie::setName(std::string name){
-    this->name = name;
-}
-
-Zombie::~Zombie()
-{
-    std::cout<< this->name <<" is dead"<< std::endl;
-}
-
-void Zombie :: announce(){
-    std :: cout << this->name<<": BraiiiiiiinnnzzzZ..." << std :: endl;
+    std::cout << &str << std::endl;
+    std::cout << &stringPTR << std::endl;
+    std::cout << &stringREF << std::endl;
 }

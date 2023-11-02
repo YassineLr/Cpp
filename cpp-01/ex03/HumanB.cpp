@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylarhris <ylarhris@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/01 06:48:36 by ylarhris          #+#    #+#             */
-/*   Updated: 2023/11/02 08:15:53 by ylarhris         ###   ########.fr       */
+/*   Created: 2023/11/02 12:22:18 by ylarhris          #+#    #+#             */
+/*   Updated: 2023/11/02 12:26:18 by ylarhris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+# include "Weapon.hpp"
+# include "HumanB.hpp"
 
-Zombie::Zombie(){
-    this->name = "CrocoMan";
+
+HumanB::HumanB(std::string name) : _name(name){
+    
+};
+
+void HumanB:: setWeapon(Weapon weapon){
+    this->_weapon = weapon;
 }
 
-void Zombie::setName(std::string name){
-    this->name = name;
-}
-
-Zombie::~Zombie()
-{
-    std::cout<< this->name <<" is dead"<< std::endl;
-}
-
-void Zombie :: announce(){
-    std :: cout << this->name<<": BraiiiiiiinnnzzzZ..." << std :: endl;
+void HumanB:: attack(){
+    std::cout << this->_name << " attacks with their "<< this->_weapon.getType()<< std::endl;
 }
