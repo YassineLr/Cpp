@@ -5,18 +5,18 @@
 #                                                     +:+ +:+         +:+      #
 #    By: ylarhris <ylarhris@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/11/03 09:30:53 by ylarhris          #+#    #+#              #
-#    Updated: 2023/11/03 13:43:17 by ylarhris         ###   ########.fr        #
+#    Created: 2023/11/03 13:47:47 by ylarhris          #+#    #+#              #
+#    Updated: 2023/11/03 13:57:33 by ylarhris         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= sed
+NAME	= harl
 
-SRC		= main.cpp
+SRC		= main.cpp Harl.cpp
 
 OBJ		= ${SRC:.cpp=.o}
 
-CPPFLAGS = -std=c++98 -Wall -Wextra -Werror
+CPPFLAGS = -std=c++98 #-Wall -Wextra -Werror
 
 RM		= rm -rf
 
