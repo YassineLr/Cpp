@@ -6,7 +6,7 @@
 #    By: ylarhris <ylarhris@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/03 09:30:53 by ylarhris          #+#    #+#              #
-#    Updated: 2023/11/03 13:43:17 by ylarhris         ###   ########.fr        #
+#    Updated: 2023/11/08 16:15:39 by ylarhris         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,12 +18,14 @@ OBJ		= ${SRC:.cpp=.o}
 
 CPPFLAGS = -std=c++98 -Wall -Wextra -Werror
 
+CXX		= c++
+
 RM		= rm -rf
 
 all	: $(NAME)
 
 ${NAME}	: ${OBJ}
-		c++ $(CPPFLAGS) $(OBJ) -o $(NAME)
+		${CXX} $(CPPFLAGS) $(OBJ) -o $(NAME)
 
 clean   :
 		${RM} ${OBJ}

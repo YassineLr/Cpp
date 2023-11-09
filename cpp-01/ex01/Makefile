@@ -6,7 +6,7 @@
 #    By: ylarhris <ylarhris@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/01 06:46:05 by ylarhris          #+#    #+#              #
-#    Updated: 2023/11/01 07:51:33 by ylarhris         ###   ########.fr        #
+#    Updated: 2023/11/08 16:12:45 by ylarhris         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,14 +16,16 @@ SRC		= Zombie.cpp zombieHorde.cpp main.cpp
 
 OBJ		= ${SRC:.cpp=.o}
 
-CPPFLAGS = -std=c++98 #-Wall -Wextra -Werror
+CXX		= c++
+
+CPPFLAGS = -std=c++98 -Wall -Wextra -Werror
 
 RM		= rm -rf
 
 all	: $(NAME)
 
 ${NAME}	: ${OBJ}
-		c++ $(CPPFLAGS) $(OBJ) -o $(NAME)
+		${CXX} $(CPPFLAGS) $(OBJ) -o $(NAME)
 
 clean   :
 		${RM} ${OBJ}

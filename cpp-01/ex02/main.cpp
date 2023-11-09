@@ -6,7 +6,7 @@
 /*   By: ylarhris <ylarhris@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 08:17:53 by ylarhris          #+#    #+#             */
-/*   Updated: 2023/11/02 10:23:56 by ylarhris         ###   ########.fr       */
+/*   Updated: 2023/11/08 16:28:34 by ylarhris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,13 @@ int main(){
     std :: string *stringPTR = &str;
     std::string& stringREF = str;
     
-
-    std::cout << &str << std::endl;
-    std::cout << &stringPTR << std::endl;
-    std::cout << &stringREF << std::endl;
+    std::cout << "The adress held by the string using :" << std::endl;
+    std::cout <<"The string : "<< &str << std::endl;
+    std::cout <<"The Pointer : "<< stringPTR << std::endl;
+    std::cout <<"The Reference : "<< &stringREF << std::endl;
+    std::cout <<"" <<std::endl;
+    std::cout << "Displaying the string using :" << std::endl;
+    std::cout <<"The string : "<< str << std::endl;
+    std::cout <<"The Pointer : "<< *stringPTR << std::endl;
+    std::cout <<"The Reference : "<< stringREF << std::endl;
 }

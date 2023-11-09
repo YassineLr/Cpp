@@ -6,7 +6,7 @@
 /*   By: ylarhris <ylarhris@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 09:26:49 by ylarhris          #+#    #+#             */
-/*   Updated: 2023/11/04 11:54:25 by ylarhris         ###   ########.fr       */
+/*   Updated: 2023/11/09 19:55:57 by ylarhris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,19 +44,19 @@ void HarlFilter::complain(std::string level){
     for (index = 0; index < 4; index++)
     {
         if(this->levels[index] == level)
-            break ;
+            break;
     }
     switch (index)
     {
     case 0:
         this->debug();
-        break;
+        // fallthrough
     case 1:
         this->info();
-        break;
+        // fallthrough
     case 2:
         this->warning();
-        break;
+        // fallthrough
     case 3:
         this->error();
         break;

@@ -6,7 +6,7 @@
 #    By: ylarhris <ylarhris@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/01 01:02:08 by ylarhris          #+#    #+#              #
-#    Updated: 2023/11/01 01:03:44 by ylarhris         ###   ########.fr        #
+#    Updated: 2023/11/08 16:12:14 by ylarhris         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,8 @@ SRC		= Zombie.cpp newZombie.cpp randomChump.cpp main.cpp
 
 OBJ		= ${SRC:.cpp=.o}
 
+CXX		= c++
+
 CPPFLAGS = -std=c++98 -Wall -Wextra -Werror
 
 RM		= rm -rf
@@ -23,7 +25,7 @@ RM		= rm -rf
 all	: $(NAME)
 
 ${NAME}	: ${OBJ}
-		c++ $(CPPFLAGS) $(OBJ) -o $(NAME)
+		${CXX} $(CPPFLAGS) $(OBJ) -o $(NAME)
 
 clean   :
 		${RM} ${OBJ}

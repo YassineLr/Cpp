@@ -6,7 +6,7 @@
 #    By: ylarhris <ylarhris@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/02 08:22:27 by ylarhris          #+#    #+#              #
-#    Updated: 2023/11/02 08:22:54 by ylarhris         ###   ########.fr        #
+#    Updated: 2023/11/05 12:07:14 by ylarhris         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SRC		= main.cpp
 
 OBJ		= ${SRC:.cpp=.o}
 
-CPPFLAGS = -std=c++98 #-Wall -Wextra -Werror
+CPPFLAGS = -std=c++98 -Wall -Wextra -Werror
 
 RM		= rm -rf
 

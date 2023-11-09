@@ -6,14 +6,14 @@
 /*   By: ylarhris <ylarhris@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 11:30:33 by ylarhris          #+#    #+#             */
-/*   Updated: 2023/11/02 12:29:45 by ylarhris         ###   ########.fr       */
+/*   Updated: 2023/11/05 12:50:34 by ylarhris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Weapon.hpp"
 
 Weapon::Weapon(){
-    // this->_type = "has no weapon";
+
 };
 
 Weapon::Weapon(std::string type){
@@ -24,6 +24,6 @@ void    Weapon::setType(std::string type){
     this->_type = type;
 };
 
-std::string Weapon::getType(){
+const std::string& Weapon::getType() const{
     return this->_type;
 }

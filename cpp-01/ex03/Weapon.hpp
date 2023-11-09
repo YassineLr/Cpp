@@ -6,7 +6,7 @@
 /*   By: ylarhris <ylarhris@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 10:32:23 by ylarhris          #+#    #+#             */
-/*   Updated: 2023/11/02 11:34:18 by ylarhris         ###   ########.fr       */
+/*   Updated: 2023/11/05 12:50:10 by ylarhris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ class Weapon {
     public :
         Weapon();
         Weapon(std::string );
-        void            setType(std::string type);
-        std::string     getType(void);
+        void                  setType(std::string type);
+        const std::string&    getType() const;
 };
 
 # endif
