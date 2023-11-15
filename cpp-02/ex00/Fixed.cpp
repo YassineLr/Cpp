@@ -19,7 +19,7 @@ int Fixed :: getRawBits(void) const{
     return this->_rawBits;
 }
 
-void    Fixed :: setRawBits(int const raw){
+void Fixed::setRawBits(int const raw){
     std::cout <<"setRawBits member function called"<<std::endl;
     this->_rawBits = raw;
 }
@@ -29,4 +29,3 @@ Fixed& Fixed::operator=(const Fixed &object){
     this->_rawBits = object.getRawBits();
     return *this;
 }
-

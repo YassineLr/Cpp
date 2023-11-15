@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ylarhris <ylarhris@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yassinelr <yassinelr@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 05:45:29 by ylarhris          #+#    #+#             */
-/*   Updated: 2023/11/01 00:55:29 by ylarhris         ###   ########.fr       */
+/*   Updated: 2023/11/15 17:19:47 by yassinelr        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ std :: string strToUpper(std :: string str){
 
 bool isEmpty(std :: string str){
     for (size_t i = 0; i < str.size(); i++){
-        if(!std :: isspace(str[i]))
+        if(!std::isspace(str[i]))
             return false;
     }
     return true;
