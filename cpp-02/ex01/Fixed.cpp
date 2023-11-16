@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ylarhris <ylarhris@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/17 00:53:09 by ylarhris          #+#    #+#             */
+/*   Updated: 2023/11/17 00:53:10 by ylarhris         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 # include "Fixed.hpp"
 
 Fixed :: Fixed(){
@@ -15,12 +27,10 @@ Fixed :: ~Fixed(){
 }
 
 int Fixed :: getRawBits(void) const{
-    std::cout <<"getRawBits member function called"<<std::endl;
     return this->_rawBits;
 }
 
 void    Fixed :: setRawBits(int const raw){
-    std::cout <<"setRawBits member function called"<<std::endl;
     this->_rawBits = raw;
 }
 
@@ -43,19 +53,18 @@ Fixed& Fixed::operator=(const Fixed &object){
 float Fixed::toFloat() const{
     float rNumber;
 
-    rNumber =  this->getRawBits() / ( 1<<8 );
-
+    rNumber =  (float)this->getRawBits() / ( 1<<this->_FractionatBits );
     return (rNumber);
 }
+
 float Fixed::toInt() const{
     float rNumber;
 
-    rNumber =  this->getRawBits() / ( 1<<8 );
-
+    rNumber =  this->getRawBits() / ( 1<<this->_FractionatBits );
     return (rNumber);
 }
 
-std::ostream& operator <<(std::ostream &os, Fixed fixed){
-    std::cout << fixed._rawBits;
+std::ostream& operator <<(std::ostream &os, const Fixed &fixed){
+    os << fixed.toFloat();
     return os;
 }
