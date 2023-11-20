@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ylarhris <ylarhris@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yassinelr <yassinelr@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 09:27:11 by ylarhris          #+#    #+#             */
-/*   Updated: 2023/11/09 19:52:28 by ylarhris         ###   ########.fr       */
+/*   Updated: 2023/11/19 23:00:15 by yassinelr        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ std :: string getNewLine(std::string line , std::string  toFind , std::string to
     while (1)
     {
         pos = line.find(toFind);
-        if(pos == -1)
-        {
+        if(pos == -1){
             newLine = newLine + line;
             return(newLine);
         }
@@ -44,7 +43,6 @@ int main(int ac, char **av){
         std::cerr << "Instructions to run the programme : ./sed outfilename to_replace to_replace_with"<<std::endl;
         return (1);
     }
-    
     std::ifstream inFile(av[1]);
     std::string     toFind(av[2]);
     std::string     toReplaceWith(av[3]);
