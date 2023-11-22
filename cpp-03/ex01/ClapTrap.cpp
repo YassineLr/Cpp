@@ -1,18 +1,18 @@
 # include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap(){
-    std::cout<<"Default constructor called"<<std::endl;
+    // std::cout<<"Default constructor called"<<std::endl;
     this->_energyPoints = 10;
     this->_hitPoints = 10;
     this->_damage = 0;
 }
 
 ClapTrap::~ClapTrap(){
-    std::cout << "destructor called" << std::endl;
+    // std::cout << "destructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name){
-    std::cout <<"parameterized constructor called"<<std::endl;
+    // std::cout <<"parameterized constructor called"<<std::endl;
     this->_energyPoints = 10;
     this->_hitPoints = 10;
     this->_damage = 0;
@@ -20,13 +20,16 @@ ClapTrap::ClapTrap(std::string name){
 }
 
 ClapTrap& ClapTrap::operator=(ClapTrap &obj){
-    std::cout <<"copy assignement operator called"<<std::endl;
+    // std::cout <<"copy assignement operator called"<<std::endl;
     this->_name = obj.getName();
+    this->_damage = obj.getDamage();
+    this->_hitPoints = obj.getHitPoints();
+    this->_energyPoints = obj.getEnergyPoints();
     return *this;
 }
 
 ClapTrap::ClapTrap(ClapTrap &obj){
-    std::cout <<"copy constructor called"<<std::endl;
+    // std::cout <<"copy constructor called"<<std::endl;
     *this = obj;
 }
 
@@ -68,7 +71,7 @@ void ClapTrap::attack(const std::string &target) {
 }
 
 void ClapTrap::beRepaired(unsigned int amount){
-    if(_energyPoints >= 1 && this->_hitPoints >= 1 ){
+    if(_energyPoints >= 1){
         _energyPoints--;
         _hitPoints += amount;
     } else {
@@ -77,10 +80,13 @@ void ClapTrap::beRepaired(unsigned int amount){
 }
 
 void ClapTrap::takeDamage(unsigned int amount){
-    if (this->_hitPoints >= amount && this->_hitPoints >= 1)
-    {
-        this->_hitPoints -= amount;
-        std::cout << "ClapTrap :" << this->_name << " take " << amount << " damage points" <<std::endl;
-    } else
-        std::cout << "ClapTrap: " << this->_name << " is died !" << std::endl;
+    _damage+=amount;
+        std::cout << "ClapTrap " << _name << "gain" << amount << " points of damage!" << std::endl;
+}
+
+void ClapTrap::printStatus(){
+    std::cout<< "ClapTrap "<< this->_name << " has :"<<std::endl;
+    std::cout << "Energy Points : "<<this->getEnergyPoints() << std::endl;
+    std::cout << "Hit Points : "<<this->getHitPoints() << std::endl;
+    std::cout << "Damage : "<<this->getDamage() << std::endl;
 }
