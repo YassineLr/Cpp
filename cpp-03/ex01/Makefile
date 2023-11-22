@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: ylarhris <ylarhris@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/11/22 05:58:32 by ylarhris          #+#    #+#              #
+#    Updated: 2023/11/22 05:58:33 by ylarhris         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME	= ScavTrap
 
 SRC		= ClapTrap.cpp main.cpp ScavTrap.cpp
@@ -6,7 +18,7 @@ OBJ		= ${SRC:.cpp=.o}
 
 CXX		= c++
 
-CPPFLAGS = -std=c++98 #-Wall -Wextra -Werror
+CPPFLAGS = -std=c++98 -Wall -Wextra -Werror
 
 RM		= rm -rf
 

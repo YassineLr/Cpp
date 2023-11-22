@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ylarhris <ylarhris@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/22 05:51:06 by ylarhris          #+#    #+#             */
+/*   Updated: 2023/11/22 05:51:07 by ylarhris         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 # ifndef CLAPTRAP_HPP
 # define CLAPTRAP_HPP
 
@@ -26,6 +38,7 @@ class ClapTrap{
         void attack(const std::string& target);
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);
-        void printStatus();
+        void    printStatus(void);
+        bool    checkStatus(void);
 };
 # endif

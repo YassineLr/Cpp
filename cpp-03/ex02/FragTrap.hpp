@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ylarhris <ylarhris@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/22 05:51:12 by ylarhris          #+#    #+#             */
+/*   Updated: 2023/11/22 05:51:13 by ylarhris         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 # ifndef FRAGTRAP_HPP
 # define FRAGTRAP_HPP
 
@@ -11,8 +23,6 @@ class FragTrap: public ClapTrap{
         ~FragTrap();
         FragTrap& operator=(FragTrap &obj);
         void attack(const std::string& target);
-        void takeDamage(unsigned int amount);
-        void beRepaired(unsigned int amount);
         void printStatus();
         void highFivesGuys(void);
 };

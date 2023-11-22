@@ -1,19 +1,29 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   FragTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ylarhris <ylarhris@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/22 05:50:55 by ylarhris          #+#    #+#             */
+/*   Updated: 2023/11/22 06:03:27 by ylarhris         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 # include "FragTrap.hpp"
 
 FragTrap::FragTrap() : ClapTrap(){
-    // std::cout<<"FragTrap Default constructor called"<<std::endl;
-    setName("Yassine");
-    setEnergyPoints(100);
-    setHitPoints(100);
-    setDamage(30);
+    std::cout<<"FragTrap Default constructor called"<<std::endl;
+    this->_energyPoints = 100;
+    this->_hitPoints = 100;
+    this->_damage = 30;
 }
 
 FragTrap::~FragTrap(){
-    // std::cout << "FragTrap destructor called" << std::endl;
+    std::cout << "FragTrap destructor called" << std::endl;
 }
 
 FragTrap& FragTrap::operator=(FragTrap &obj){
-    std::cout <<"FragTrap copy assignement operator called"<<std::endl;
     this->_name = obj.getName();
     this->_damage = obj.getDamage();
     this->_hitPoints = obj.getHitPoints();
@@ -21,50 +31,26 @@ FragTrap& FragTrap::operator=(FragTrap &obj){
     return *this;
 }
 
-FragTrap::FragTrap(FragTrap &obj){
-    *this = obj;
+FragTrap::FragTrap(FragTrap &obj) : ClapTrap(obj){
+    std::cout<<"FragTrap Copy constructor called"<<std::endl;
 }
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name){
-    // std::cout <<"FragTrap parameterized constructor called"<<std::endl;
+    std::cout <<"FragTrap parameterized constructor called"<<std::endl;
     setEnergyPoints(50);
     setDamage(20);
     setHitPoints(100);
 }
 
 void FragTrap::highFivesGuys(void){
-    std::cout << getName() <<" : high Five"<< std::endl;
+    std::cout << getName() <<" says high Five"<< std::endl;
 }
 
 void FragTrap::attack(const std::string &target) {
-    if (getEnergyPoints() >= 1) {
-        _hitPoints -= _damage;
-        if (_hitPoints < 0){
-            _hitPoints = 0;
-        }
-        setEnergyPoints(getEnergyPoints() - 1);
+    if (checkStatus()) {
+        _energyPoints -= 1;
         std::cout << "FragTrap " << _name << " attacks " << target << ", causing " << _damage << " points of damage!" << std::endl;
-    } else {
-        std::cout << "FragTrap " << _name << " doesn't have enough energy to attack!" << std::endl;
     }
-}
-
-void FragTrap::beRepaired(unsigned int amount){
-    if(_energyPoints >= 1){
-        _energyPoints--;
-        _hitPoints += amount;
-    } else {
-        std::cout << "FragTrap " << _name << " doesn't have enough energy to be repaired!" << std::endl;
-    }
-}
-
-void FragTrap::takeDamage(unsigned int amount){
-    if (this->_hitPoints >= amount && this->_hitPoints >= 1)
-    {
-        this->_hitPoints -= amount;
-        std::cout << "FragTrap :" << this->_name << " take " << amount << " damage points" <<std::endl;
-    } else
-        std::cout << "FragTrap: " << this->_name << " is died !" << std::endl;
 }
 
 void FragTrap::printStatus(){

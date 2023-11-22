@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ylarhris <ylarhris@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/22 04:08:09 by ylarhris          #+#    #+#             */
+/*   Updated: 2023/11/22 05:37:42 by ylarhris         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 # ifndef CLAPTRAP_HPP
 # define CLAPTRAP_HPP
 
 # include <iostream>
 
 class ClapTrap{
-    private :
+    protected :
         std::string _name;
         int         _hitPoints;
         int         _energyPoints;
@@ -26,5 +38,7 @@ class ClapTrap{
         void attack(const std::string& target);
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);
+        void    printStatus(void);
+        bool    checkStatus(void);
 };
 # endif
