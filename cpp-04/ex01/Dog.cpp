@@ -2,12 +2,10 @@
 
 Dog::Dog() : Animal(){
     this->type = "Dog";
-    this->_brain = new Brain();
 }
 
 Dog::~Dog(){
     std::cout << "Dog is dead" << std::endl;
-    delete this->_brain;
 }
 
 Dog::Dog(Dog const& obj):Animal(obj){

@@ -8,13 +8,13 @@ class WrongAnimal{
         std::string type;
     public :
         WrongAnimal();
-        virtual ~WrongAnimal();
+        ~WrongAnimal();
         WrongAnimal(const WrongAnimal &obj);
         WrongAnimal& operator=(const WrongAnimal &obj);
 
         std::string getType() const;
         void setType(const std::string& newType);
-        virtual void makeSound(void) const; 
+        void makeSound(void) const; 
 };
 
 # endif

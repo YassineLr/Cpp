@@ -2,12 +2,9 @@
 # define CAT_HPP
 
 # include <iostream>
-# include "Brain.hpp"
 # include "Animal.hpp"
 
 class Cat:public Animal {
-    private :
-        Brain *_brain;
     public :
         Cat();
         ~Cat();
