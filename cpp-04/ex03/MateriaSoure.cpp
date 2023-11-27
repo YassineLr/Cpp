@@ -15,9 +15,12 @@ MateriaSource::~MateriaSource(){
 
 MateriaSource& MateriaSource::operator=(const MateriaSource &obj){
     for (size_t i = 0; i < 4; i++){
-        if(obj.m[i])
-            this->m[i] = obj.m[i];
+        delete this->m[i];
     }
+    for (size_t i = 0; i < 4; i++){
+        this->m[i] = obj.m[i];
+    }
+    return *this;
 }
 
 MateriaSource::MateriaSource(MateriaSource &obj){
