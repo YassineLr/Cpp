@@ -4,7 +4,6 @@ Character::Character(){
     for (size_t i = 0; i < 4; i++){
         this->_inventory[i] = NULL;
     }
-    
 }
 
 Character& Character::operator=(const Character &obj){
@@ -38,13 +37,13 @@ std::string const& Character::getName() const{
     return this->_name;
 }
 
-// void Character::equip(AMateria *m){
-//     for (int i = 0; i < 4; i++){
-//         if (!this->_inventory[i]){
-//             this->_inventory[i] = m ;
-//             break ;
-//         }
-//     }
+void Character::equip(AMateria *m){
+    for (int i = 0; i < 4; i++){
+        if (!this->_inventory[i]){
+            this->_inventory[i] = m ;
+            break ;
+        }
+    }
 }
 
 void Character::unequip(int idx){

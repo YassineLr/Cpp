@@ -1,13 +1,13 @@
 NAME	= AMateria
 
 SRC		= AMateria.cpp main.cpp Character.cpp Cure.cpp Ice.cpp ICharacter.cpp IMateriaSoure.cpp \
-			MateriaSoure.cpp main.cpp
+			MateriaSoure.cpp
 
 OBJ		= ${SRC:.cpp=.o}
 
 CXX		= c++
 
-CPPFLAGS = -std=c++98 -Wall -Wextra -Werror
+CPPFLAGS = -std=c++98 -Wall -Wextra -Werror -fsanitize=address -g3
 
 RM		= rm -rf
 
