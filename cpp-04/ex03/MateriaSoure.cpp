@@ -9,9 +9,7 @@ MateriaSource::MateriaSource(){
 
 MateriaSource::~MateriaSource(){
     for (size_t i = 0; i < 4; i++){
-        if(m[i]){
-            delete m[i];
-        }
+        delete m[i];
     }
 }
 
@@ -32,8 +30,8 @@ MateriaSource::MateriaSource(MateriaSource &obj){
 void MateriaSource::learnMateria(AMateria *m){
     for (size_t i = 0; i < 4; i++){
         if(!this->m[i]){
-            std::cout <<"hola :: "<<m->getType()<<std::endl;
             this->m[i] = m;
+            std::cout <<"hola :: "<<this->m[i]->getType()<<std::endl;
             break;
         }
     }

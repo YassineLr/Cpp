@@ -1,11 +1,11 @@
 # include "Ice.hpp"
 
 Ice::Ice(){
-    std::cout << "Ice constructor called" << std::endl;
+    // std::cout << "Ice constructor called" << std::endl;
     this->_type = "ice";
 }
 
-Ice::Ice(Ice &obj){
+Ice::Ice(Ice &obj): AMateria(obj){
     *this = obj;
 }
 
@@ -15,7 +15,7 @@ Ice& Ice::operator=(const Ice& obj){
 }
 
 Ice::~Ice(){
-    std::cout<<"Ice destructor called"<<std::endl;
+    // std::cout<<"Ice destructor called"<<std::endl;
 }
 
 void Ice::use(ICharacter& target ){

@@ -1,7 +1,7 @@
 # include "AMateria.hpp"
 
 AMateria::AMateria(){
-    std::cout <<"AMateria Constructor called" <<std::endl;
+    // std::cout <<"AMateria Constructor called" <<std::endl;
 }
 
 AMateria& AMateria::operator=(const AMateria &obj){
@@ -14,7 +14,7 @@ AMateria::AMateria(const AMateria& obj){
 }
 
 AMateria::~AMateria(){
-    std::cout <<"AMateria Destructor called" <<std::endl;
+    // std::cout <<"AMateria Destructor called" <<std::endl;
 }
 
 std::string const& AMateria::getType() const{
@@ -22,7 +22,7 @@ std::string const& AMateria::getType() const{
 }
 
 AMateria::AMateria(std::string const & type):_type(type){
-    std::cout <<"AMateria parametrized Constructor called" <<std::endl;
+    // std::cout <<"AMateria parametrized Constructor called" <<std::endl;
 }
 
 void AMateria::use(ICharacter& target){

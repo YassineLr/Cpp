@@ -19,6 +19,9 @@ Character& Character::operator=(const Character &obj){
 
 Character::Character(std::string name){
     this->_name = name;
+    for (size_t i = 0; i < 4; i++){
+        this->_inventory[i] = NULL;
+    }
 }
 
 Character::Character(const Character &obj){
