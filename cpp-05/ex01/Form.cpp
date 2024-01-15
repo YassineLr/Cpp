@@ -12,7 +12,6 @@ Form::Form(const Form &form):_name(form.getName()), _signed(form.getSigned()), _
 }
 
 Form& Form::operator=(const Form &form){
-    this->_name = form.getName();
     this->_signed = form.getSigned();
     return (*this);
 }
