@@ -12,14 +12,16 @@ class Bureaucrat
     public:
         Bureaucrat();
         Bureaucrat(std::string name, int grade);
-        ~Bureaucrat();
-        Bureaucrat& operator=(const Bureaucrat &obj);
         Bureaucrat(const Bureaucrat &obj);
-        int getGrade() const;
+        Bureaucrat& operator=(const Bureaucrat &obj);
+        ~Bureaucrat();
+
+        int         getGrade() const;
         std::string getName() const;
-        void incrementGrade();
-        void decrementGrade();
-        void signForm(Form form);
+        void        incrementGrade();
+        void        decrementGrade();
+        void        signForm(Form form);
+
         class GradeToHigh : public std::exception
         {
             public:
@@ -38,6 +40,5 @@ class Bureaucrat
 };
 
 std::ostream& operator <<(std::ostream &os, const Bureaucrat &Bureaucrat);
-
 
 # endif

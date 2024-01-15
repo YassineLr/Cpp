@@ -2,12 +2,13 @@
 
 int main(){
     try {
-        // Bureaucrat a("yassine", 190);
         Bureaucrat b("yassine", 130);
-        // a.decrementGrade();
-        Form form("cdi", 1, 11);
-        form.beSigned(b);
+        Form form("cdi", 140, 140);
+        Form form1("cdd", 15, 15);
         std::cout << b << std::endl;
+        std::cout << form << std::endl;
+        form1.beSigned(b);
+        form.beSigned(b);
     }
     catch(std::exception &e) {
         std::cerr << e.what() << '\n';

@@ -51,9 +51,12 @@ std::ostream& operator <<(std::ostream &os, const Bureaucrat &Bureaucrat){
     return os;
 }
 
-void Bureaucrat::signForm(Form form){
-    if(form.getSigned())
+void Bureaucrat::signForm(AForm &form){
+    try{
+        form.beSigned(*this);
         std::cout << this->getName() << " signed " << form.getName() << std::endl;
-    else
-        std::cout << this->getName() << " couldn't sign " << form.getName() << " because bureaucrat grade is lower than the grade required." << std::endl;
+    }
+    catch (std::exception& e) {
+        std::cout << this->getName() << " couldn't sign " << form.getName() << " because " << e.what() << std::endl;
+    }
 }

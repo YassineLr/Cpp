@@ -1,4 +1,4 @@
-// # include "Form.hpp"
+# include "AForm.hpp"
 # include "ShrubberyCreationForm.hpp"
 # include "RobotomyRequestForm.hpp"
 int main(){
@@ -8,6 +8,7 @@ int main(){
         
         // a.decrementGrade();
         AForm *sh = new RobotomyRequestForm("ha");
+        std::cout << sh->getName();
         sh->execute(b);
         std::cout << b << std::endl;
     }

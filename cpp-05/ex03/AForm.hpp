@@ -17,7 +17,7 @@ class AForm{
         AForm(const AForm &AForm);
         AForm& operator=(const AForm &AForm);
         ~AForm();
-        std::string const getName() const;
+        std::string getName() const;
         bool        getSigned() const;
         int         getGradeToBeSigned() const;
         int         getGradeToBeExecuted() const;

@@ -37,8 +37,17 @@ int Form::getGradeToBeExecuted() const {
 }
 
 void Form::beSigned(Bureaucrat &bureaucrat){
-    if (bureaucrat.getGrade() < this->getGradeToBeSigned()){
-        this->_signed = true;
+    try{
+        if (bureaucrat.getGrade() < this->getGradeToBeSigned()){
+            this->_signed = true;
+        }
+        bureaucrat.signForm(*this);
+    } catch(std::exception &e){
+        std::cerr << bureaucrat.getName() << " couldn't sign " << this->getName() << " because " << e.what() << std::endl;
     }
-    bureaucrat.signForm(*this);
+}
+
+std::ostream& operator <<(std::ostream &os, const Form &form){
+    os << "Form Name :" <<form.getName() << std::endl << "grade required to be signed : " << form.getGradeToBeSigned() << std::endl << "grade required to be executed : " << form.getGradeToBeExecuted();
+    return os;
 }

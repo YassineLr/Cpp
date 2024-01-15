@@ -6,7 +6,7 @@ int main(){
         Intern someRandomIntern;
         AForm *rrf;
         ShrubberyCreationForm *tst = new ShrubberyCreationForm("hello");
-        tst->getName();
+        std::cout << tst->getName();
         rrf = someRandomIntern.makeForm("presidential pardon", "Bender");
         rrf->getName();
     }
