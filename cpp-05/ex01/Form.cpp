@@ -1,5 +1,9 @@
 # include "Form.hpp"
 
+Form::Form():_name("Default"), _signed(false), _gradeToBeSigned(150), _gradeToBeExecuted(150){
+
+}
+
 Form::Form(std::string name ,int gradeToBeSigned, int gradeToBeExecuted):_name(name),_signed(false),_gradeToBeSigned(gradeToBeSigned),_gradeToBeExecuted(gradeToBeExecuted){
     if (gradeToBeExecuted > 150 || gradeToBeSigned > 150){
         throw GradeTooLowException();
@@ -37,13 +41,10 @@ int Form::getGradeToBeExecuted() const {
 }
 
 void Form::beSigned(Bureaucrat &bureaucrat){
-    try{
-        if (bureaucrat.getGrade() < this->getGradeToBeSigned()){
-            this->_signed = true;
-        }
-        bureaucrat.signForm(*this);
-    } catch(std::exception &e){
-        std::cerr << bureaucrat.getName() << " couldn't sign " << this->getName() << " because " << e.what() << std::endl;
+    if (bureaucrat.getGrade() <= this->getGradeToBeSigned()){
+        this->_signed = true;
+    } else {
+        throw Form::GradeTooLowException();
     }
 }
 

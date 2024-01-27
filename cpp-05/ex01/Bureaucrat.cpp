@@ -1,6 +1,6 @@
 # include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(){
+Bureaucrat::Bureaucrat(): _name("Default"), _grade(150){
 
 }
 
@@ -51,7 +51,7 @@ std::ostream& operator <<(std::ostream &os, const Bureaucrat &Bureaucrat){
     return os;
 }
 
-void Bureaucrat::signForm(AForm &form){
+void Bureaucrat::signForm(Form &form){
     try{
         form.beSigned(*this);
         std::cout << this->getName() << " signed " << form.getName() << std::endl;

@@ -7,8 +7,8 @@ int main(){
         Form form1("cdd", 15, 15);
         std::cout << b << std::endl;
         std::cout << form << std::endl;
-        form1.beSigned(b);
-        form.beSigned(b);
+        b.signForm(form1);
+        b.signForm(form);
     }
     catch(std::exception &e) {
         std::cerr << e.what() << '\n';

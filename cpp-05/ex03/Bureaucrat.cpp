@@ -1,6 +1,6 @@
 # include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(){
+Bureaucrat::Bureaucrat(): _name("Default"), _grade(150){
 
 }
 

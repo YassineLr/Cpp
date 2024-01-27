@@ -3,11 +3,13 @@ NAME	= Bureaucrat
 SRC		= Bureaucrat.cpp AForm.cpp PresidentialPardonForm.cpp ShrubberyCreationForm.cpp \
 		RobotomyRequestForm.cpp main.cpp
 
+TARGET	= $(wildcard *_shruberry)
+
 OBJ		= ${SRC:.cpp=.o}
 
 CXX		= c++
 
-CPPFLAGS = -std=c++98 #-Wall -Wextra -Werror #-fsanitize=address -g3
+CPPFLAGS = -std=c++98 -Wall -Wextra -Werror #-fsanitize=address -g3
 
 RM		= rm -rf
 
@@ -20,7 +22,7 @@ clean   :
 		${RM} ${OBJ}
 
 fclean	: clean
-	${RM} $(NAME)
+	${RM} $(NAME) ${TARGET}
 
 re		: fclean all
 

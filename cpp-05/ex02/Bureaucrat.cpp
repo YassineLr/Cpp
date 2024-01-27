@@ -1,8 +1,9 @@
 # include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(){
+Bureaucrat::Bureaucrat(): _name("Default"), _grade(150){
 
 }
+
 
 Bureaucrat::Bureaucrat(std::string name, int grade): _name(name){
     if (grade < 1)

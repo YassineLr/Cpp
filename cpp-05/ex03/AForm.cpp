@@ -39,7 +39,12 @@ int AForm::getGradeToBeExecuted() const {
 void AForm::beSigned(Bureaucrat &bureaucrat){
     if (bureaucrat.getGrade() <= this->getGradeToBeSigned()){
         this->_signed = true;
-    }
-    else
+    } else {
         throw AForm::GradeTooLowException();
+    }
+}
+
+std::ostream& operator <<(std::ostream &os, const AForm &form){
+    os << "Form Name : " <<form.getName() << std::endl << "grade required to be signed : " << form.getGradeToBeSigned() << std::endl << "grade required to be executed : " << form.getGradeToBeExecuted();
+    return os;
 }

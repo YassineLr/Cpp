@@ -16,7 +16,7 @@ class AForm{
         AForm(std::string name, int gradeToBeSigned, int gradeToBeExecuted);
         AForm(const AForm &AForm);
         AForm& operator=(const AForm &AForm);
-        ~AForm();
+        virtual ~AForm();
         std::string getName() const;
         bool        getSigned() const;
         int         getGradeToBeSigned() const;
@@ -41,7 +41,7 @@ class AForm{
                     return ("Form is not signed");
                 }
         };
-        class CannotExecuteExceprion : public std::exception {
+        class CannotExecuteException : public std::exception {
             public :
                 virtual const char * what() const throw(){
                     return ("Grade is lower than execution grade");
@@ -49,4 +49,5 @@ class AForm{
         };
         virtual void execute(Bureaucrat const & executor) const = 0;
 };
+std::ostream& operator <<(std::ostream &os, const AForm &form);
 #endif

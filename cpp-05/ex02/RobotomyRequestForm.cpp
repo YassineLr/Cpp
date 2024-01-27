@@ -1,5 +1,14 @@
 # include "RobotomyRequestForm.hpp"
 
+RobotomyRequestForm::~RobotomyRequestForm(){
+
+}
+
+RobotomyRequestForm::RobotomyRequestForm():AForm("RobotomyRequestForm", 72, 45), _target("unnamed"){
+    
+}
+
+
 RobotomyRequestForm::RobotomyRequestForm(std::string target):AForm("RobotomyRequestForm", 72, 45){
     this->_target = target;
 }
@@ -15,7 +24,7 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm &f
 
 void RobotomyRequestForm::execute(Bureaucrat const & executor) const {
     if(executor.getGrade() > this->_gradeToBeExecuted)
-        throw AForm::CannotExecuteExceprion();
+        throw AForm::CannotExecuteException();
     if (!this->getSigned())
         throw AForm::NotSignedException();
     srand(time(0));
