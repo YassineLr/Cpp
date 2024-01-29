@@ -1,7 +1,7 @@
 # include "Intern.hpp"
 int main(){
     Intern someRandomIntern;
-    AForm* rrf = new ShrubberyCreationForm();
+    AForm* rrf;
     try{
         rrf = someRandomIntern.makeForm("robotomy request", "Bender");
         delete rrf;
