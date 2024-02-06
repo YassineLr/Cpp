@@ -1,12 +1,12 @@
-NAME	= Serializer
+NAME	= Base
 
-SRC		= Serializer.cpp main.cpp
+SRC		= Base.cpp main.cpp A.cpp B.cpp C.cpp utils.cpp
 
 OBJ		= ${SRC:.cpp=.o}
 
 CXX		= c++
 
-CPPFLAGS = -std=c++98 -Wall -Wextra -Werror
+CPPFLAGS = -std=c++98 #-Wall -Wextra -Werror
 
 RM		= rm -rf
 

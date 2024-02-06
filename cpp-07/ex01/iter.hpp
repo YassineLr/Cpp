@@ -4,33 +4,14 @@
 # include <iostream>
 
 template <typename T>
-
 void func(T a){
     std::cout << a << std::endl;
 };
 
-template <typename T>
-void iter(T *add, int length, void (func)(T a)){
-    for (int i = 0; i < length; i++){
-        func(add[i]);
+template <typename T, typename Func>
+void iter(T *add, size_t length, Func f){
+    for (size_t i = 0; i < length; i++){
+        f(add[i]);
     }
 };
-
-class Test{
-    private:
-        std::string Name;
-    public:
-        std::string getName() const {
-            return this->Name;
-        };
-        void   setName(std::string name){
-            this->Name = name;
-        }
-        Test(){};
-        Test(std::string name){
-            this->Name = name;
-        };
-};
-
-std::ostream& operator <<(std::ostream &os, const Test &t);
 # endif

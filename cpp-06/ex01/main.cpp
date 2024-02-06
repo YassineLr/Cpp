@@ -1,11 +1,20 @@
-# include "utils.hpp"
+# include "Serializer.hpp"
 
 int main(){
-    Base *b = new C();
+    Data d;
+    Data *l;
+    char tet[sizeof(Data)];
+    d._data = 13;
+    uintptr_t a;
 
-    identify(*b);
-    Base *c = new Base();
-    A* a = dynamic_cast <A*>(c);
+    std::memcpy(tet, &d, sizeof(Data));
+
+    std::cout << *reinterpret_cast<int *>(tet) << std::endl;
+    std::cout << *reinterpret_cast<int *>(tet + 4) << std::endl;
+    // std::cout << d._data << std::endl;
+    a = Serializer::serialize(&d);
+    l = Serializer::deserialize(a);
     
-    delete b;
+    // std::cout << a << std::endl;
+    // std::cout << l->_data << std::endl;
 }
