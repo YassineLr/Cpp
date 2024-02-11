@@ -1,6 +1,6 @@
-NAME	= Easyfind
+NAME	= Span
 
-SRC		= main.cpp
+SRC		= main.cpp Span.cpp
 
 OBJ		= ${SRC:.cpp=.o}
 
