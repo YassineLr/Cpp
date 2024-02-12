@@ -4,7 +4,7 @@
 #include <stack>
 #include <deque>
 
-template <typename T, typename container=std::deque<T>>
+template <typename T, typename container=std::deque<T> >
 
 class MutantStack : public std::stack<T, container>
 {
@@ -12,9 +12,9 @@ class MutantStack : public std::stack<T, container>
         MutantStack(){};
         ~MutantStack(){};
         MutantStack(const MutantStack &obj) : std::stack<T>(obj){};
-        MutantStack& operator=(MutantStack &obj){
+        MutantStack& operator=(MutantStack<int> &obj){
             if(this != obj){
-                std::stack<T>operator=(obj);
+                std::stack<T>::operator=(obj);
             }
         };
         
