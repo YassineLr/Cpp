@@ -5,6 +5,7 @@
 # include <fstream>
 # include <cstdlib>
 # include <vector>
+# include <stdlib.h>
 # include <map>
 
 class BitcoinExchange
@@ -16,7 +17,7 @@ class BitcoinExchange
         
         void    DataBaseParser(std::ifstream &os);
         void    inputParser(std::ifstream &os);
+        bool parseOneLine(std::string line);
 };
 
-bool parseOneLine(std::string line);
 #endif
