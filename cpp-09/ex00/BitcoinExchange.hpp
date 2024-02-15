@@ -6,6 +6,7 @@
 # include <cstdlib>
 # include <vector>
 # include <stdlib.h>
+# include <algorithm>
 # include <map>
 
 class BitcoinExchange

@@ -5,7 +5,7 @@ bool keyValid(std::string key){
     int month;
     int day;
 
-    if(key.length() != 11)
+    if(key.length() != 10)
         return false;
     if(key[4] != '-' || key[7] != '-')
         return false;
@@ -22,7 +22,7 @@ std::string parseKey(std::string key){
     
     if(keyValid(key))
         return(key);
-    throw std::runtime_error("Invalid Date");
+    throw std::runtime_error("Error: bad input => "+ key);
 }
 
 bool isOnlyDigits(std :: string str){
@@ -30,7 +30,7 @@ bool isOnlyDigits(std :: string str){
 
     for (size_t i = 0; i < str.size(); i++){
 
-        if(!isdigit(str[i])){
+        if(!isdigit(str[i]) && i == 0 && str[i] != '-'){
             if(str[i] == '.' && !flag)
                 flag = 1;
             else 
@@ -43,11 +43,12 @@ bool isOnlyDigits(std :: string str){
 float parseValue(std::string value){
     float     parsedValue;
 
-    std::cout << "{" << value << "}" << std::endl;
     if (isOnlyDigits(value)){
         parsedValue = std::stof(value.c_str());
         if(parsedValue < 0)
-            throw std::runtime_error("Negatif number");
+            throw std::runtime_error("Error: not a positive number.");
+        else if(parsedValue > 1000)
+            throw std::runtime_error("Error: too big of a number.");
         return parsedValue;
     } else {
         throw std::runtime_error("Not a valid value");
@@ -58,7 +59,7 @@ void BitcoinExchange::DataBaseParser(std::ifstream &os){
     std::string line;
 
     while (getline(os,line)) {
-        data.insert(std::pair<std::string , std::string>(line.substr(0, line.find(",") - 1), line.substr(line.find(","), line.length())));
+        data.insert(std::pair<std::string , std::string>(line.substr(0, line.find(",")), line.substr(line.find(",")+1, line.length())));
     }
 }
 
@@ -85,10 +86,13 @@ bool BitcoinExchange::parseOneLine(std::string line){
     
     try {
         lineAnalyzer(line);
-        key = parseKey(line.substr(0, line.find("|")));
+        key = parseKey(line.substr(0, line.find("|")-1));
         value = parseValue(line.substr(line.find("|") + 2, line.length()));
-        // std::cout << key << " val :" << value << std::endl;
-        std::map<std::string , std::string>::iterator it = data.find(value);
+        std::map<std::string , std::string>::iterator it = data.lower_bound(key);
+        if(it->first != key)
+            it--;
+        std::cout << key << " => " << value << " = "<< std::stof(it->second) * value << std::endl;
+
     } catch( std::runtime_error &e){
         std::cout << e.what() << std::endl;
     } 
