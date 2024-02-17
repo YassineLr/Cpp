@@ -28,21 +28,24 @@ std::string parseKey(std::string key){
 bool isOnlyDigits(std :: string str){
     int flag = 0;
 
+    if(str[0] == '.' || str[str.length() - 1] == '.')
+        return false;
+    if (std::count(str.begin(), str.end() , '.') > 1)
+        return false;
+
     for (size_t i = 0; i < str.size(); i++){
 
-        if(!isdigit(str[i]) && i == 0 && str[i] != '-'){
-            if(str[i] == '.' && !flag)
-                flag = 1;
-            else 
+        if(!isdigit(str[i]) && (i != 0 && str[i] == '-')){
                 return false;
         }
-    }
+    } 
     return true;
 }
 
 float parseValue(std::string value){
     float     parsedValue;
 
+    std::cout << "{" + value + "}" << std::endl;
     if (isOnlyDigits(value)){
         parsedValue = std::stof(value.c_str());
         if(parsedValue < 0)
