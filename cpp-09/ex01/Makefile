@@ -1,4 +1,4 @@
-NAME	= btc
+NAME	= RPN
 
 SRC		= main.cpp RPN.cpp
 
@@ -6,7 +6,7 @@ OBJ		= ${SRC:.cpp=.o}
 
 CXX		= c++
 
-CPPFLAGS = -std=c++98 #-fsanitize=address -g3 #-Wall -Wextra -Werror
+CPPFLAGS = -std=c++98 -fsanitize=address -g3 #-Wall -Wextra -Werror
 
 RM		= rm -rf
 

@@ -3,14 +3,9 @@
 int main(int ac, char **av){
     RPN rpn;
 
-    try
-    {
-        rpn.parser(av[1]);
-        std::cout << "hey";
+    if(ac == 2){
+        rpn.rpn(av[1]);
+    } else {
+        std::cerr << "Invalid Arguments" << std::endl;
     }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
-    
 }
