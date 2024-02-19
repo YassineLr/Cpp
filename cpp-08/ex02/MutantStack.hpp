@@ -12,12 +12,12 @@ class MutantStack : public std::stack<T, container>
         MutantStack(){};
         ~MutantStack(){};
         MutantStack(const MutantStack &obj) : std::stack<T>(obj){};
-        MutantStack& operator=(MutantStack<int> &obj){
+        MutantStack& operator=(MutantStack &obj){
             if(this != obj){
                 std::stack<T>::operator=(obj);
             }
         };
-        
+
         typedef  typename container::iterator iterator;
         typedef  typename container::const_iterator const_iterator;
 
