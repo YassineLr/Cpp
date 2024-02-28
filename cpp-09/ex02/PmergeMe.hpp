@@ -3,28 +3,40 @@
 
 # include <iostream>
 # include <vector>
+# include <deque>
 # include <algorithm>
 
 class PmergeMe
 {
     private:
-        std::vector<int> inputArgs;
-        std::vector<std::pair<int, int> > pairs;
-        std::vector<int> sorted;
+        std::vector<int>                    vInputArgs;
+        std::deque<int>                     dInputArgs;
+        std::vector<int>                    vSorted;
+        std::deque<int>                     dSorted;
+        std::vector<std::pair<int, int> >   vPairs;
+        std::deque<std::pair<int, int> >    dPairs;
+        unsigned int                        vStartTime;
+        unsigned int                        dStartTime;
+        unsigned int                        vEndTime;
+        unsigned int                        dEndTime;
+
     public:
         PmergeMe();
         ~PmergeMe();
-        std::vector<std::pair<int, int> > getPairs() const;
-        std::vector<int> getInputArgs() const;
-        std::vector<int> getSorted() const{
-            return this->sorted;
-        };
+        PmergeMe(PmergeMe const &other);
 
-        void    pairing();
-        void    insertingInMainChain();
-        void    sortingGroups(void);
-        void    sortingPairs(void);
+        void    vPairing();
+        void    dPairing();
+        void    insertingInVMainChain();
+        void    insertingInDMainChain();
+        void    sortingVGroups(void);
+        void    sortingDGroups(void);
+        void    sortingVPairs(void);
+        void    sortingDPairs(void);
+        void    displayInputArgs(void);
         void    argsParser(char **av, int ac);
+        void    displaySorted(void);
+        void    containerPerformance(void);
 };
 
 bool containOnlyDigits(std::string number);
