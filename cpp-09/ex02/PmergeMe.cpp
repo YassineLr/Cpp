@@ -43,7 +43,7 @@ void PmergeMe::sortingPairs(){
     }
 }
 
-void quicksort(std::vector<std::pair<int, int>>& arr, int left, int right) {
+void quicksort(std::vector<std::pair<int, int> >& arr, int left, int right) {
     int i = left, j = right;
     int pivot = arr[(left + right) / 2].first;
 
@@ -72,11 +72,11 @@ void PmergeMe::sortingGroups(){
 
 
 void PmergeMe::insertingInMainChain(){
-    for (auto it = pairs.begin(); it != pairs.end() ; it++) {
+    for (std::vector<std::pair<int, int> >::iterator it = pairs.begin(); it != pairs.end() ; it++) {
         sorted.push_back(it->first);
-    } for (auto it = pairs.begin(); it != pairs.end() ; it++) {
+    } for (std::vector<std::pair<int, int> >::iterator it = pairs.begin(); it != pairs.end() ; it++) {
         if(it->second >= 0){
-            auto itt = std::lower_bound(sorted.begin(), sorted.end(), it->second);
+            std::vector<int>::iterator itt = std::lower_bound(sorted.begin(), sorted.end(), it->second);
             sorted.insert(itt, it->second);
         }
     }

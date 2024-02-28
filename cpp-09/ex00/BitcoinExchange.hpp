@@ -6,6 +6,7 @@
 # include <cstdlib>
 # include <vector>
 # include <stdlib.h>
+# include <cstring>
 # include <algorithm>
 # include <map>
 

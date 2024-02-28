@@ -26,7 +26,6 @@ std::string parseKey(std::string key){
 }
 
 bool isOnlyDigits(std :: string str){
-    int flag = 0;
 
     if(str[0] == '.' || str[str.length() - 1] == '.')
         return false;
@@ -45,9 +44,8 @@ bool isOnlyDigits(std :: string str){
 float parseValue(std::string value){
     float     parsedValue;
 
-    std::cout << "{" + value + "}" << std::endl;
     if (isOnlyDigits(value)){
-        parsedValue = std::stof(value.c_str());
+        parsedValue = atof(value.c_str());
         if(parsedValue < 0)
             throw std::runtime_error("Error: not a positive number.");
         else if(parsedValue > 1000)
@@ -65,22 +63,37 @@ void BitcoinExchange::DataBaseParser(std::ifstream &os){
         data.insert(std::pair<std::string , std::string>(line.substr(0, line.find(",")), line.substr(line.find(",")+1, line.length())));
     }
 }
+void headerAnalyzer(std::string header){
+    if(header.compare("date | value"))
+        throw std::runtime_error("invalid header");
+}
 
 void BitcoinExchange::inputParser(std::ifstream &os){
     std::string line;
 
-    while (getline(os, line)) {
-        parseOneLine(line);
+    try
+    {
+        getline(os, line);
+        headerAnalyzer(line);
+        while (getline(os, line)) {
+            parseOneLine(line);
+        }
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
     }
     
+    
 }
+
 
 void lineAnalyzer(std::string line){
     int pipeIndex = line.find("|");
     int spaceIndex = line.find(" ");
 
     if (pipeIndex != 11 || spaceIndex != 10 || line.substr(spaceIndex+1, line.length()).find(" ") != 1)
-        throw std::runtime_error("invalid line syntax !");
+        throw std::runtime_error("Error: bad input => " + line);
 }
 
 bool BitcoinExchange::parseOneLine(std::string line){
@@ -94,7 +107,7 @@ bool BitcoinExchange::parseOneLine(std::string line){
         std::map<std::string , std::string>::iterator it = data.lower_bound(key);
         if(it->first != key)
             it--;
-        std::cout << key << " => " << value << " = "<< std::stof(it->second) * value << std::endl;
+        std::cout << key << " => " << value << " = "<< atof(it->second.c_str()) * value << std::endl;
 
     } catch( std::runtime_error &e){
         std::cout << e.what() << std::endl;
